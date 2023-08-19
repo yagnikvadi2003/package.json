@@ -1,8 +1,4 @@
-<p align="center">
-  <a href="https://docs.npmjs.com/cli/v9/configuring-npm/package-json">
-    <img src="https://www.turing.com/blog/wp-content/uploads/2022/06/Facebook-Top-NPM-Packages-for-Node-JS-Developers.jpg" alt="package.json" width="200" />
-  </a>
-</p>
+[![Package JSON](https://www.turing.com/blog/wp-content/uploads/2022/06/Facebook-Top-NPM-Packages-for-Node-JS-Developers.jpg)](https://docs.npmjs.com/cli/v9/configuring-npm/package-json)
 
 <h3 align="center">Package.json</h3>
 
