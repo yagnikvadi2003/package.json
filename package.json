@@ -1,7 +1,7 @@
 {
-  "name": "portfolio",
+  "name": "package.json",
   "version": "1.0.0",
-  "description": "portfolio web-application using React and Typescript",
+  "description": "package.json File structure for Typescript React Project.",
   "type": "module",
   "main": "main.tsx",
   "private": true,
@@ -12,56 +12,77 @@
     "lint:fix": "eslint --fix 'src/**/*.{js,ts,tsx,json}'",
     "prettier": "prettier --write 'src/**/*.{js,ts,tsx,css,md,json}' --config ./.prettierrc",
     "pre:commit": "npm run prettier && npm run lint:fix",
-    "preview": "vite preview"
+    "prepare": "husky install",
+    "preview": "vite preview",
+    "clean": "rm -rf build",
+    "start:update": "npm upgrade --global yarn && yarn global remove npm-check-updates && yarn global add npm-check-updates && ncu -a -u && rm -rf node_modules yarn.lock && yarn",
+    "commitlint": "commitlint --edit"
   },
   "lint-staged": {
-    "*.{js,ts,tsx}": "yarn run lint:fix",
-    "**/*.{js,tsx,ts,less,md,json}": [
+    "*.{js,jsx,ts,tsx}": "yarn run lint:fix",
+    "**/*.{js,jsx,ts,tsx,less,md,json}": [
+      "eslint --fix",
       "prettier --write"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/yagnikvadi2003/portfolio/",
+    "url": "https://github.com/yagnikvadi2003/package.json/",
     "directory": "src"
   },
   "keywords": [
     "TypeScript",
-    "React",
-    "Web Development"
+    "ReactJS",
+    "Web Development",
+    "react-router-dom version6",
+    "bootstrap",
+    "react-bootstrap",
+    "react-icons",
+    "react-pdf"
   ],
   "author": "Yagnik Vadi",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yagnikvadi2003/portfolio/issues"
+    "url": "https://github.com/yagnikvadi2003/package.json/issues"
   },
-  "homepage": "https://github.com/yagnikvadi2003/portfolio#readme",
+  "discussion": "https://github.com/yagnikvadi2003/package.json/discussions",
+  "homepage": "https://github.com/yagnikvadi2003/package.json#readme",
   "devDependencies": {
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
-    "@typescript-eslint/eslint-plugin": "^6.3.0",
-    "@typescript-eslint/parser": "^6.3.0",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
     "@vitejs/plugin-react": "^4.0.3",
-    "eslint": "^8.45.0",
+    "eslint": "^8.47.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.0",
     "eslint-plugin-prettier": "^5.0.0",
-    "eslint-plugin-react": "^7.33.1",
+    "eslint-plugin-react": "^7.33.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "prettier": "^3.0.1",
+    "lint-staged": "^14.0.0",
+    "pre-commit": "^1.2.2",
+    "prettier": "^3.0.2",
     "prettier-eslint": "^15.0.1",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.15.0"
   },
+  "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": "18.x",
-    "npm": "9.x",
-    "yarn": "1.22.x"
+    "node": ">=18.x",
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
