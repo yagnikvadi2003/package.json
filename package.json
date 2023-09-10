@@ -40,7 +40,10 @@
     "react-icons",
     "react-pdf"
   ],
-  "author": "Yagnik Vadi",
+  "author": {
+    "name": "Yagnik Vadi",
+    "email": "yagnikvadi8@gmail.com"
+  },
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/yagnikvadi2003/package.json/issues"
@@ -92,13 +95,24 @@
   },
   "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=18.x",
-    "npm": ">=9.x",
-    "yarn": ">=1.22.x"
+    "node": ">=18.17.0"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "lint-staged",
+      "commit-msg": "yarn commitlint"
     }
+  },  
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
