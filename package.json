@@ -93,9 +93,13 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
   },
+  "resolutions": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
   "packageManager": "yarn@1.22.19",
   "engines": {
-    "node": ">=18.17.0"
+    "node": ">=18.18.0"
   },
   "husky": {
     "hooks": {
