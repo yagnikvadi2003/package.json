@@ -6,17 +6,21 @@
   "main": "main.tsx",
   "private": true,
   "scripts": {
-    "start:dev": "vite",
-    "build": "tsc && vite build",
-    "lint": "eslint src/**/*.{js,ts,tsx,json}",
-    "lint:fix": "eslint --fix 'src/**/*.{js,ts,tsx,json}'",
-    "prettier": "prettier --write 'src/**/*.{js,ts,tsx,css,md,json}' --config ./.prettierrc",
-    "pre:commit": "npm run prettier && npm run lint:fix",
+    "start:web": "NODE_ENV=development webpack-dev-server --open --mode development --config ./config/webpack.config.js --hot",
+    "staging:web": "NODE_ENV=staging webpack-dev-server --open --mode development --config ./config/webpack.config.js",
+    "build:web": "yarn run clean && NODE_ENV=production webpack --mode production --config ./config/webpack.prod.js",
+    "build:staging:web": "NODE_ENV=staging webpack --mode production --config ./config/webpack.prod.js",
+    "build:production:web": "NODE_ENV=production webpack --mode production --config ./config/webpack.prod.js",
+    "start:update": "npm upgrade --global yarn && yarn global remove npm-check-updates && yarn global add npm-check-updates && ncu -a -u && rm -rf node_modules yarn.lock && yarn",
     "prepare": "husky install",
     "preview": "vite preview",
+    "lint": "eslint src/**/*.{js,jsx,ts,tsx,json}",
+    "lint:fix": "eslint --fix 'src/**/*.{js,jsx,ts,tsx,json}'",
+    "prettier": "prettier --write 'src/**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc",
+    "pre:commit": "npm run prettier && yarn run lint:fix",
+    "commit-msg": "commitlint -e $GIT_PARAMS",
     "clean": "rm -rf build",
-    "start:update": "npm upgrade --global yarn && yarn global remove npm-check-updates && yarn global add npm-check-updates && ncu -a -u && rm -rf node_modules yarn.lock && yarn",
-    "commitlint": "commitlint --edit"
+    "clear": "rm -rf build/ node_modules/ yarn.lock && yarn cache clean"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "yarn run lint:fix",
@@ -42,11 +46,13 @@
   ],
   "author": {
     "name": "Yagnik Vadi",
-    "email": "yagnikvadi8@gmail.com"
+    "email": "yagnikvadi8@gmail.com",
+    "url" : "https://flowcv.me/yagnikvadi2003/"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yagnikvadi2003/package.json/issues"
+    "url": "https://github.com/yagnikvadi2003/rts-boilerplate/issues",
+    "email" : "yagnikvadi8@gmail.com"
   },
   "discussion": "https://github.com/yagnikvadi2003/package.json/discussions",
   "homepage": "https://github.com/yagnikvadi2003/package.json#readme",
@@ -93,10 +99,17 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.15.0"
   },
+  "peerDependencies": {
+		"react": "^17.0.0 || ^18.0.0",
+		"react-dom": "^17.0.0 || ^18.0.0"
+	},
   "resolutions": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
+  "cacheDirectories": [
+    "node_modules"
+  ],
   "packageManager": "yarn@1.22.19",
   "engines": {
     "node": ">=18.18.0"
@@ -118,5 +131,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "os": [
+    "linux"
+  ]
 }
